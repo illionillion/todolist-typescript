@@ -87,21 +87,11 @@ function App() {
     setTodos(newTodos);
   };
 
-  // useEffect(()=>{ console.log(todos);
-  //  },todos)
-
   return (
     <div className="App">
       <div>
         <Typography variant="h3" style={{margin:"20px"}}>To Do List with TypeScript</Typography>
         <form onSubmit={(e) => handleSubmit(e)}>
-          {/* <input
-            type="text"
-            onChange={(e) => handleChange(e)}
-            className="inputText"
-            value={inputValue}
-            ref={inputRef}
-          /> */}
           <TextField 
             id="filled-basic"
             label="Input To Do"
@@ -110,25 +100,11 @@ function App() {
             className="inputText"
             value={inputValue}
             />
-          {/* <input type="submit" value="追加" className="submitButton" /> */}
           <Button variant="contained" type="submit" className="submitButton" style={{margin:"10px"}}>追加</Button>
         </form>
-        {/* <ul>
-        <ListItemButton>
-          <ListItemText primary="Spam" />
-        </ListItemButton>
-        </ul> */}
         <ul>
           {todos.map((todo) => (
             <li key={todo.id}>
-              {/* <input
-                type="text"
-                onChange={(e) => handleEdit(todo.id, e.target.value)}
-                className="inputText"
-                value={todo.inputValue}
-                ref={inputRef}
-                disabled={todo.checked}
-              /> */}
               <TextField
                 id="standard-basic"
                 label="To Do"
@@ -139,57 +115,16 @@ function App() {
                 ref={inputRef}
                 disabled={todo.checked}
                 />
-              {/* <input
-                type="checkbox"
-                onChange={() => handleChecked(todo.id, todo.checked)}
-                className="inputText"
-                checked={todo.checked}
-                ref={inputRef}
-              /> */}
               <Checkbox 
                 onChange={() => handleChecked(todo.id, todo.checked)}
                 className="inputText"
                 checked={todo.checked}
                 size="small" />
-              {/* <input
-                type="button"
-                onClick={() => handleDelete(todo.id)}
-                value="消"
-              /> */}
               <Button variant="outlined" onClick={ () => handleDelete(todo.id)}><DeleteIcon /></Button>
             </li>
           ))}
         </ul>
-        {/* <ListItem sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {[0, 1, 2, 3].map((value) => {
-        const labelId = `checkbox-list-label-${value}`;
 
-        return (
-          <ListItem
-                  key={value}
-                  secondaryAction={
-                    <IconButton  edge="end" aria-label="comments">
-                      <CommentIcon />
-                    </IconButton>
-                  }
-                  disablePadding
-                >
-                  <ListItemButton role={undefined} onClick={e=>{}} dense>
-                    <ListItemIcon>
-                      <Checkbox
-                        edge="start"
-                        checked={checked.indexOf(value) !== -1}
-                        tabIndex={-1}
-                        disableRipple
-                        inputProps={{ 'aria-labelledby': labelId }}
-                      />
-                    </ListItemIcon>
-                    <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-                  </ListItemButton>
-                </ListItem>
-              );
-            })}
-          </ListItem> */}
       </div>
     </div>
   );
